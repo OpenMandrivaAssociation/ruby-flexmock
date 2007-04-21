@@ -1,24 +1,21 @@
 %define rname flexmock
 %define name  ruby-%{rname}
 
-%define version 0.1.7
-%define release %mkrel 2
+%define version 0.6.0
+%define release %mkrel 1
 
 Summary: Simple mock object for unit testing
 Name: %name
 Version: %version
 Release: %release
 License: BSD-like
-Group: Development/Other
+Group: Development/Ruby
 URL: http://onestepback.org/software/flexmock/
 Source0: %{rname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildArch: noarch
 BuildRequires: ruby-RubyGems ruby-rake
 Requires: ruby
-
-%{expand:%%define ruby_libdir %(ruby -rrbconfig -e "puts Config::CONFIG['sitelibdir']")}
-%{expand:%%define ruby_archdir %(ruby -rrbconfig -e "puts Config::CONFIG['sitearchdir']")}
 
 %description
 FlexMock is a simple mock object for unit testing. The interface is simple,
@@ -39,8 +36,8 @@ rm -rf %buildroot
 
 %install
 rm -rf %buildroot
-mkdir -p %buildroot%ruby_libdir
-cp -a lib/flexmock.rb %buildroot%ruby_libdir
+mkdir -p %buildroot%ruby_sitelibdir
+cp -a lib/flexmock.rb %buildroot%ruby_sitelibdir
 for f in `find test %buildroot -name \*.rb`
 do
 	if head -n1 "$f" | grep '^#!' >/dev/null;
@@ -54,6 +51,6 @@ done
 
 %files
 %defattr(-,root,root)
-%{ruby_libdir}/flexmock.rb
+%{ruby_sitelibdir}/flexmock.rb
 %doc CHANGELOG README test
 
