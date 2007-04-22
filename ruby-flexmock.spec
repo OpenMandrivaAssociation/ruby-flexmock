@@ -2,7 +2,7 @@
 %define name  ruby-%{rname}
 
 %define version 0.6.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Simple mock object for unit testing
 Name: %name
@@ -37,7 +37,7 @@ rm -rf %buildroot
 %install
 rm -rf %buildroot
 mkdir -p %buildroot%ruby_sitelibdir
-cp -a lib/flexmock.rb %buildroot%ruby_sitelibdir
+cp -a lib/flexmock* %buildroot%ruby_sitelibdir
 for f in `find test %buildroot -name \*.rb`
 do
 	if head -n1 "$f" | grep '^#!' >/dev/null;
@@ -51,6 +51,6 @@ done
 
 %files
 %defattr(-,root,root)
-%{ruby_sitelibdir}/flexmock.rb
+%{ruby_sitelibdir}/flexmock*
 %doc CHANGELOG README test
 
