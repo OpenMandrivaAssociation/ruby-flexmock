@@ -12,6 +12,7 @@ License: BSD-like
 Group: Development/Ruby
 URL: http://onestepback.org/software/flexmock/
 Source0: %{rname}-%{version}.gem
+BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildArch: noarch
 BuildRequires: ruby-RubyGems ruby-rake ruby-rcov
 Requires: ruby
