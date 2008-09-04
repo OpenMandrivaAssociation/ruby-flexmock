@@ -1,8 +1,8 @@
 %define rname flexmock
 %define name  ruby-%{rname}
 
-%define version 0.6.0
-%define release %mkrel 5
+%define version 0.8.3
+%define release %mkrel 1
 
 Summary: Simple mock object for unit testing
 Name: %name
@@ -52,5 +52,4 @@ done
 %files
 %defattr(-,root,root)
 %{ruby_sitelibdir}/flexmock*
-%doc CHANGELOG README test
-
+%doc README test
