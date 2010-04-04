@@ -1,8 +1,8 @@
-%define rname flexmock
-%define name  ruby-%{rname}
+%define upstream_name flexmock
+%define name  ruby-%{upstream_name}
 
-%define version 0.8.3
-%define release %mkrel 2
+%define version 0.8.6
+%define release %mkrel 1
 
 Summary: Simple mock object for unit testing
 Name: %name
@@ -10,23 +10,21 @@ Version: %version
 Release: %release
 License: BSD-like
 Group: Development/Ruby
-URL: http://onestepback.org/software/flexmock/
-Source0: %{rname}-%{version}.gem
-BuildRoot: %{_tmppath}/%{name}-buildroot
-BuildArch: noarch
+URL: http://flexmock.rubyforge.org/
+Source0: http://rubyforge.org/frs/download.php/55056/%{upstream_name}-%{version}.tgz
 BuildRequires: ruby-RubyGems ruby-rake ruby-rcov
 Requires: ruby
+BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}
 
 %description
 FlexMock is a simple mock object for unit testing. The interface is simple,
 but still provides a good bit of flexibility.
 
 %prep
-rm -rf %rname-%version
-gem install %{SOURCE0} --install-dir `pwd`
-mv gems/%rname-%version .
-rmdir gems
-%setup -T -D -n %rname-%version
+%setup -q -n %upstream_name-%version
+
+%build
 
 %check
 rake test
