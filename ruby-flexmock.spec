@@ -2,7 +2,7 @@
 %define name  ruby-%{upstream_name}
 
 %define version 0.8.6
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Simple mock object for unit testing
 Name: %name
