@@ -10,7 +10,7 @@ Version: %version
 Release: %release
 License: BSD-like
 Group: Development/Ruby
-URL: http://flexmock.rubyforge.org/
+URL: https://flexmock.rubyforge.org/
 Source0: http://rubyforge.org/frs/download.php/55056/%{upstream_name}-%{version}.tgz
 BuildRequires: ruby-RubyGems ruby-rake ruby-rcov
 Requires: ruby
